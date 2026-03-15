@@ -11,7 +11,7 @@ export default function DashboardScreen() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/dashboard')
+    fetch('https://anamodas.onrender.com/api/dashboard')
       .then(res => res.json())
       .then(d => { setData(d); setLoading(false); })
       .catch(e => { console.error(e); setLoading(false); });

@@ -20,7 +20,7 @@ export default function ProductsScreen() {
 
   const loadProducts = () => {
     setLoading(true);
-    fetch(`http://localhost:3001/api/products?search=${search}`)
+    fetch(`https://anamodas.onrender.com/api/products?search=${search}`)
       .then(res => res.json())
       .then(data => { setProducts(data); setLoading(false); })
       .catch(err => { console.error(err); setLoading(false); });
@@ -32,7 +32,7 @@ export default function ProductsScreen() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const url = formData.id ? `http://localhost:3001/api/products/${formData.id}` : 'http://localhost:3001/api/products';
+    const url = formData.id ? `https://anamodas.onrender.com/api/products/${formData.id}` : 'https://anamodas.onrender.com/api/products';
     const method = formData.id ? 'PUT' : 'POST';
 
     const payload = { ...formData, price: parseFloat(formData.price), stock_quantity: parseInt(formData.stock_quantity, 10) };
@@ -64,7 +64,7 @@ export default function ProductsScreen() {
 
   const deleteProduct = (id) => {
     if (window.confirm('Tem certeza que deseja remover este produto?')) {
-      fetch(`http://localhost:3001/api/products/${id}`, { method: 'DELETE' })
+      fetch(`https://anamodas.onrender.com/api/products/${id}`, { method: 'DELETE' })
         .then(() => loadProducts());
     }
   };

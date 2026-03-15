@@ -12,7 +12,7 @@ export default function NewOrderScreen() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/products')
+    fetch('https://anamodas.onrender.com/api/products')
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.error('Error fetching products:', err));
@@ -97,7 +97,7 @@ export default function NewOrderScreen() {
     };
 
     setLoading(true);
-    fetch('http://localhost:3001/api/orders', {
+    fetch('https://anamodas.onrender.com/api/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)

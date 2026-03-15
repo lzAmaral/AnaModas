@@ -15,7 +15,7 @@ export default function OrdersScreen() {
     if (statusFilter) params.append('status', statusFilter);
     if (dateFilter) params.append('date', dateFilter);
 
-    fetch(`http://localhost:3001/api/orders?${params.toString()}`)
+    fetch(`https://anamodas.onrender.com/api/orders?${params.toString()}`)
       .then(res => res.json())
       .then(data => { setOrders(data); setLoading(false); })
       .catch(err => { console.error(err); setLoading(false); });
@@ -26,7 +26,7 @@ export default function OrdersScreen() {
   }, [search, statusFilter, dateFilter]);
 
   const updateStatus = (id, newStatus) => {
-    fetch(`http://localhost:3001/api/orders/${id}/status`, {
+    fetch(`https://anamodas.onrender.com/api/orders/${id}/status`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status: newStatus })
@@ -36,7 +36,7 @@ export default function OrdersScreen() {
   };
 
   const updatePaymentStatus = (id, newPaymentStatus) => {
-    fetch(`http://localhost:3001/api/orders/${id}/payment`, {
+    fetch(`https://anamodas.onrender.com/api/orders/${id}/payment`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ payment_status: newPaymentStatus })
@@ -47,7 +47,7 @@ export default function OrdersScreen() {
 
   const deleteOrder = (id) => {
     if (window.confirm('Tem certeza que deseja excluir este pedido? Os itens retornarão ao estoque.')) {
-      fetch(`http://localhost:3001/api/orders/${id}`, {
+      fetch(`https://anamodas.onrender.com/api/orders/${id}`, {
         method: 'DELETE'
       })
       .then(res => res.json())
