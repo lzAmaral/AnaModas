@@ -121,9 +121,9 @@ export default function NewOrderScreen() {
 
   return (
     <div className="animate-fade-in">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-4)', marginBottom: 'var(--spacing-6)' }}>
-        <button className="btn btn-icon-only btn-secondary" onClick={() => navigate(-1)}><ArrowLeft /></button>
-        <h1>Lançar Novo Pedido</h1>
+      <div className="mobile-flex-col mobile-gap-4" style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-4)', marginBottom: 'var(--spacing-6)' }}>
+        <button className="btn btn-icon-only btn-secondary" style={{ alignSelf: 'flex-start' }} onClick={() => navigate(-1)}><ArrowLeft /></button>
+        <h1 style={{ flex: 1, textAlign: 'center' }}>Lançar Novo Pedido</h1>
       </div>
 
       {error && (
@@ -167,7 +167,7 @@ export default function NewOrderScreen() {
         </div>
 
         <div className="card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-4)' }}>
+          <div className="mobile-flex-col mobile-gap-4" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-4)' }}>
             <h2 style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}><ShoppingCart /> Itens do Pedido</h2>
             <button type="button" className="btn btn-secondary" onClick={addItem}>
               <Plus /> Adicionar Produto
