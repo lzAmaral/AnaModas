@@ -62,7 +62,7 @@ app.get('/api/orders', async (req, res) => {
     
     let query = `
       SELECT 
-        o.id, o.total_amount, o.status, o.payment_status, o.order_date,
+        o.id, o.total_amount, o.status, o.payment_status, o.order_date, o.notes,
         c.name as client_name, c.phone as client_phone
       FROM orders o
       LEFT JOIN clients c ON o.client_id = c.id
@@ -175,7 +175,7 @@ app.delete('/api/orders/:id', async (req, res) => {
 });
 
 app.post('/api/orders', async (req, res) => {
-  const { client_name, client_phone, items } = req.body;
+  const { client_name, client_phone, items, notes } = req.body;
   
   if (!items || items.length === 0) {
     return res.status(400).json({ error: 'Order must have items' });
@@ -195,8 +195,8 @@ app.post('/api/orders', async (req, res) => {
 
     // We will update the total_amount at the end after validating all items with DB prices
     const orderResult = await client.query(
-      `INSERT INTO orders (client_id, total_amount, status, payment_status) VALUES ($1, $2, $3, $4) RETURNING id`, 
-      [clientId, 0, 'pendente', 'não pago']
+      `INSERT INTO orders (client_id, total_amount, status, payment_status, notes) VALUES ($1, $2, $3, $4, $5) RETURNING id`, 
+      [clientId, 0, 'pendente', 'não pago', notes || null]
     );
     const orderId = orderResult.rows[0].id;
 

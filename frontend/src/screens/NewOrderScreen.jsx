@@ -7,6 +7,7 @@ export default function NewOrderScreen() {
   const [products, setProducts] = useState([]);
   const [clientName, setClientName] = useState('');
   const [clientPhone, setClientPhone] = useState('');
+  const [notes, setNotes] = useState('');
   const [orderItems, setOrderItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -87,6 +88,7 @@ export default function NewOrderScreen() {
     const payload = {
       client_name: clientName || 'Cliente Balcão',
       client_phone: clientPhone,
+      notes: notes,
       items: orderItems.map(item => ({
         product_id: parseInt(item.productId, 10),
         size: item.size,
@@ -146,6 +148,16 @@ export default function NewOrderScreen() {
             <div className="form-group">
               <label className="form-label">Telefone </label>
               <input className="form-input" placeholder="(00) 00000-0000" value={clientPhone} onChange={e => setClientPhone(e.target.value)} />
+            </div>
+            <div className="form-group" style={{ flexGrow: 1 }}>
+              <label className="form-label">Observações (Opcional)</label>
+              <textarea 
+                className="form-input" 
+                placeholder="Ex: Entregar na escola, bordar o nome..." 
+                value={notes} 
+                onChange={e => setNotes(e.target.value)}
+                style={{ resize: 'vertical', minHeight: '80px', flexGrow: 1 }}
+              />
             </div>
           </div>
 

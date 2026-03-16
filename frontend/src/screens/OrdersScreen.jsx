@@ -121,8 +121,23 @@ export default function OrdersScreen() {
                   <tr key={o.id}>
                     <td><strong>#{o.id.toString().padStart(5, '0')}</strong></td>
                     <td>
-                      <div>{o.client_name || 'Cliente Balcão'}</div>
-                      {o.client_phone && <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)' }}>{o.client_phone}</div>}
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                        <div style={{ fontWeight: 500 }}>{o.client_name || 'Cliente Balcão'}</div>
+                        {o.client_phone && <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)' }}>{o.client_phone}</div>}
+                        {o.notes && (
+                          <div style={{ 
+                            fontSize: '0.8rem', 
+                            color: 'var(--color-warning)', 
+                            backgroundColor: 'var(--color-warning-bg)', 
+                            padding: '4px 8px', 
+                            borderRadius: '4px',
+                            marginTop: '2px',
+                            borderLeft: '2px solid var(--color-warning)'
+                          }}>
+                            <strong>Obs:</strong> {o.notes}
+                          </div>
+                        )}
+                      </div>
                     </td>
                     <td>{new Date(o.order_date).toLocaleDateString('pt-BR')} {new Date(o.order_date).toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'})}</td>
                     <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(o.total_amount)}</td>
