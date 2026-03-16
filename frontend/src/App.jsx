@@ -18,8 +18,8 @@ function Sidebar() {
 
   return (
     <aside className="sidebar">
-      <div className="sidebar-header">
-        <h2>Ana Modas</h2>
+      <div className="sidebar-header" style={{ display: 'flex', justifyContent: 'center', padding: 'var(--spacing-4)' }}>
+        <img src="/logo.png" alt="Ana Modas Logo" style={{ maxHeight: '80px', maxWidth: '100%', objectFit: 'contain' }} />
       </div>
       <nav className="sidebar-nav">
         {navItems.map((item) => {
