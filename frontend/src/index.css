@@ -105,11 +105,6 @@ a:hover {
   gap: var(--spacing-6);
 }
 
-@media (max-width: 768px) {
-  .main-content {
-    /* Main layout is handled underneath but let's just make sure paddings aren't overridden */
-  }
-}
 
 /* Card Component */
 .card {
