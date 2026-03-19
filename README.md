@@ -80,5 +80,5 @@ Abra o seu navegador no endereço indicado pelo `Vite` (ex: `http://localhost:51
 
 Desenvolvido por **[Luiz Amaral]**.
 
-- **LinkedIn:** [https://www.linkedin.com/in/luiz-gustavo-de-campos-amaral-122622278/]
-- **Portfólio:** [https://luizamaral.vercel.app/]
+- **LinkedIn:** https://www.linkedin.com/in/luiz-gustavo-de-campos-amaral-122622278/ 
+- **Portfólio:** https://luizamaral.vercel.app/ 
