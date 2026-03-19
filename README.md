@@ -76,9 +76,9 @@ Abra o seu navegador no endereço indicado pelo `Vite` (ex: `http://localhost:51
 
 ---
 
-## 👨‍💻 Sobre o Autor
+## Sobre o Autor
 
-Desenvolvido por **[Seu Nome/Luiz Amaral]**.
+Desenvolvido por **[Luiz Amaral]**.
 
-- **LinkedIn:** [Insira o link para seu LinkedIn]
-- **Portfólio:** [Insira o link para o portfólio]
+- **LinkedIn:** [https://www.linkedin.com/in/luiz-gustavo-de-campos-amaral-122622278/]
+- **Portfólio:** [https://luizamaral.vercel.app/]
